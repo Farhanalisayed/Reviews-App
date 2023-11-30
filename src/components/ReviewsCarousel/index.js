@@ -15,7 +15,7 @@ class ReviewsCarousel extends Component {
     const {reviewsList} = this.props
     const {index} = this.state
     const updatedIndex = index - 1
-    if (0 <= updatedIndex < reviewsList.length) {
+    if (0 <= updatedIndex && updatedIndex< reviewsList.length) {
       this.setState({
         index: updatedIndex,
         image: reviewsList[updatedIndex].imgUrl,
@@ -38,7 +38,7 @@ class ReviewsCarousel extends Component {
     const {reviewsList} = this.props
     const {index} = this.state
     const updatedIndex = index + 1
-    if (0 <= updatedIndex < reviewsList.length) {
+    if (0 <= updatedIndex && updatedIndex< reviewsList.length) {
       this.setState({
         index: updatedIndex,
         image: reviewsList[updatedIndex].imgUrl,
