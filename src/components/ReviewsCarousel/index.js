@@ -1,4 +1,3 @@
-// Write your code here
 import {Component} from 'react'
 import './index.css'
 
@@ -11,11 +10,12 @@ class ReviewsCarousel extends Component {
     description:
       'The most important thing I learnt is that nothing is a failure, but what we learn from that is a rich and rewarding experience.',
   }
+
   leftClicked = () => {
     const {reviewsList} = this.props
     const {index} = this.state
     const updatedIndex = index - 1
-    if (0 <= updatedIndex && updatedIndex< reviewsList.length) {
+    if (updatedIndex >= 0 && updatedIndex < reviewsList.length) {
       this.setState({
         index: updatedIndex,
         image: reviewsList[updatedIndex].imgUrl,
@@ -38,7 +38,7 @@ class ReviewsCarousel extends Component {
     const {reviewsList} = this.props
     const {index} = this.state
     const updatedIndex = index + 1
-    if (0 <= updatedIndex && updatedIndex< reviewsList.length) {
+    if (updatedIndex >= 0 && updatedIndex < reviewsList.length) {
       this.setState({
         index: updatedIndex,
         image: reviewsList[updatedIndex].imgUrl,
@@ -56,6 +56,7 @@ class ReviewsCarousel extends Component {
       }))
     }
   }
+
   render() {
     const {reviewsList} = this.props
     const {image, user, company, description} = this.state
@@ -82,7 +83,7 @@ class ReviewsCarousel extends Component {
           <button
             type="button"
             className="btn"
-            data-testid="leftArrow"
+            data-testid="rightArrow"
             onClick={this.rightClicked}
           >
             <img
